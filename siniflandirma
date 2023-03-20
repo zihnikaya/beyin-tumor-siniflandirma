@@ -128,8 +128,6 @@ X_dataset=np.array(x_dataset)
 Y_dataset=np.array(y_dataset)
 Y_dataset=Y_dataset.reshape((7023,1))
 
-#Y_dataset=Y_dataset-1
-
 from sklearn.model_selection import KFold
 folds=list(KFold(n_splits=5,shuffle=True,random_state=1).split(X_dataset,Y_dataset))
 
