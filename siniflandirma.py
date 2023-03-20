@@ -187,6 +187,6 @@ for j, (train_idx, val_idx) in enumerate(folds):
     Recall.append(recaller)
     Sensspeci.append(sensitivity)
     Roc_auc.append(roc_auc)
-    con_mat = confusion_matrix(y_val, Y_predict)
-    print("Confusion Matrix ", con_mat)
+    Con_mat = confusion_matrix(y_val, Y_predict)
+    print("Confusion Matrix ", Con_mat)
 
