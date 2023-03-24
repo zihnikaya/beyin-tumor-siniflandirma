@@ -46,9 +46,7 @@ for filename in src:
     LLr, (LHr, HLr, HHr) = pywt.dwt2(r, 'db2')
 
     LL = cv2.merge((LLb, LLg, LLr))
-
     x = np.array(LL, dtype='float32')
-
     y=1
     y=np.array(y,dtype='float32')
     x = scaler.fit_transform(x.reshape(-1, x.shape[-1])).reshape(x.shape)
@@ -69,7 +67,6 @@ for filename in src:
     LLr, (LHr, HLr, HHr) = pywt.dwt2(r, 'db2')
 
     LL = cv2.merge((LLb, LLg, LLr))
-
     x=np.array(LL,dtype='float32')
     y=2
     y=np.array(y,dtype='float32')
@@ -91,7 +88,6 @@ for filename in src:
     LLr, (LHr, HLr, HHr) = pywt.dwt2(r, 'db2')
 
     LL = cv2.merge((LLb, LLg, LLr))
-
     x=np.array(LL,dtype='float32')
     y=3
     y=np.array(y,dtype='float32')
