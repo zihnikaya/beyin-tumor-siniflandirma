@@ -1,12 +1,10 @@
 from rlcompleter import Completer
 
 import tensorflow as tf
-import h5py
 import numpy as np
 import os
 import cv2
 from sklearn.metrics import precision_score,recall_score,f1_score,roc_auc_score,confusion_matrix
-from imblearn.metrics import sensitivity_specificity_support
 from sklearn.preprocessing import StandardScaler
 import pywt
 Completer.use_jedi = False
@@ -56,7 +54,7 @@ for filename in src:
 
     coeffsr = pywt.dwt2(r, 'db2')
     LLr, (LHr, HLr, HHr) = coeffsr
-    
+
     LL = cv2.merge((HHb, HHg, HHr))
 
     x = np.array(LL, dtype='float32')
@@ -84,7 +82,7 @@ for filename in src:
 
     coeffsr = pywt.dwt2(r, 'db2')
     LLr, (LHr, HLr, HHr) = coeffsr
-   
+
     LL = cv2.merge((HHb, HHg, HHr))
 
     x=np.array(LL,dtype='float32')
@@ -143,15 +141,6 @@ model=tf.keras.Model(inputs=input_image,outputs=out)
 
 model.compile(optimizer=tf.keras.optimizers.RMSprop(learning_rate=0.0001),loss='sparse_categorical_crossentropy',metrics=['accuracy'])
 
-from sklearn.preprocessing import label_binarize
-from sklearn.metrics import auc,roc_curve
-
-History = []
-Prescore = []
-Recall = []
-F1 = []
-Sensspeci = []
-Roc_auc = []
 for j, (train_idx, val_idx) in enumerate(folds):
     print("Fold " + str(j + 1))
 
@@ -167,26 +156,10 @@ for j, (train_idx, val_idx) in enumerate(folds):
     prescore = precision_score(y_val, Y_predict, average=None)
     recaller = recall_score(y_val, Y_predict, average=None)
     score = f1_score(y_val, Y_predict, average=None)
-    sensitivity = sensitivity_specificity_support(y_val, Y_predict, average=None)
-    lb = label_binarize(y_val, classes=[0, 1, 2, 3])
-    lb1 = label_binarize(Y_predict, classes=[0, 1, 2, 3])
-    fpr = dict()
-    tpr = dict()
-    roc_auc = dict()
-    for i in range(3):
-        fpr[i], tpr[i], _ = roc_curve(lb[:, i], lb1[:, i])
-        roc_auc[i] = auc(fpr[i], tpr[i])
-
+    con_mat = confusion_matrix(y_val, Y_predict)
     print("Precision: ", prescore)
     print("Recall: ", recaller)
     print("F1-score ", score)
-    print("Sensitivity ", sensitivity)
-    History.append(history)
-    Prescore.append(prescore)
-    F1.append(score)
-    Recall.append(recaller)
-    Sensspeci.append(sensitivity)
-    Roc_auc.append(roc_auc)
-    Con_mat = confusion_matrix(y_val, Y_predict)
-    print("Confusion Matrix ", Con_mat)
+    print("Confusion Matrix ", con_mat)
+
 
