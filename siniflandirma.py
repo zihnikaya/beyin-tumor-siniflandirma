@@ -20,14 +20,9 @@ for filename in src:
 
     b, g, r = cv2.split(x)
 
-    coeffsb = pywt.dwt2(b, 'db2')
-    LLb, (LHb, HLb, HHb) = coeffsb
-
-    coeffsg = pywt.dwt2(g, 'db2')
-    LLg, (LHg, HLg, HHg) = coeffsg
-
-    coeffsr = pywt.dwt2(r, 'db2')
-    LLr, (LHr, HLr, HHr) = coeffsr
+    LLb, (LHb, HLb, HHb) = pywt.dwt2(b, 'db2')
+    LLg, (LHg, HLg, HHg) = pywt.dwt2(g, 'db2')
+    LLr, (LHr, HLr, HHr) = pywt.dwt2(r, 'db2')
 
     LL = cv2.merge((LLb, LLg, LLr))
     x=np.array(LL,dtype='float32')
@@ -46,14 +41,9 @@ for filename in src:
     x = cv2.imread(full_file_name)
     b, g, r = cv2.split(x)
 
-    coeffsb = pywt.dwt2(b, 'db2')
-    LLb, (LHb, HLb, HHb) = coeffsb
-
-    coeffsg = pywt.dwt2(g, 'db2')
-    LLg, (LHg, HLg, HHg) = coeffsg
-
-    coeffsr = pywt.dwt2(r, 'db2')
-    LLr, (LHr, HLr, HHr) = coeffsr
+    LLb, (LHb, HLb, HHb) = pywt.dwt2(b, 'db2')
+    LLg, (LHg, HLg, HHg) = pywt.dwt2(g, 'db2')
+    LLr, (LHr, HLr, HHr) = pywt.dwt2(r, 'db2')
 
     LL = cv2.merge((LLb, LLg, LLr))
 
@@ -74,14 +64,9 @@ for filename in src:
     x=cv2.imread(full_file_name)
     b, g, r = cv2.split(x)
 
-    coeffsb = pywt.dwt2(b, 'db2')
-    LLb, (LHb, HLb, HHb) = coeffsb
-
-    coeffsg = pywt.dwt2(g, 'db2')
-    LLg, (LHg, HLg, HHg) = coeffsg
-
-    coeffsr = pywt.dwt2(r, 'db2')
-    LLr, (LHr, HLr, HHr) = coeffsr
+    LLb, (LHb, HLb, HHb) = pywt.dwt2(b, 'db2')
+    LLg, (LHg, HLg, HHg) = pywt.dwt2(g, 'db2')
+    LLr, (LHr, HLr, HHr) = pywt.dwt2(r, 'db2')
 
     LL = cv2.merge((LLb, LLg, LLr))
 
@@ -101,14 +86,9 @@ for filename in src:
     x=cv2.imread(full_file_name)
     b, g, r = cv2.split(x)
 
-    coeffsb = pywt.dwt2(b, 'db2')
-    LLb, (LHb, HLb, HHb) = coeffsb
-
-    coeffsg = pywt.dwt2(g, 'db2')
-    LLg, (LHg, HLg, HHg) = coeffsg
-
-    coeffsr = pywt.dwt2(r, 'db2')
-    LLr, (LHr, HLr, HHr) = coeffsr
+    LLb, (LHb, HLb, HHb) = pywt.dwt2(b, 'db2')
+    LLg, (LHg, HLg, HHg) = pywt.dwt2(g, 'db2')
+    LLr, (LHr, HLr, HHr) = pywt.dwt2(r, 'db2')
 
     LL = cv2.merge((LLb, LLg, LLr))
 
