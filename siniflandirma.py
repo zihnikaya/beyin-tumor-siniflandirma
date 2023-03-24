@@ -29,7 +29,7 @@ for filename in src:
     coeffsr = pywt.dwt2(r, 'db2')
     LLr, (LHr, HLr, HHr) = coeffsr
 
-    LL = cv2.merge((HHb, HHg, HHr))
+    LL = cv2.merge((LLb, LLg, LLr))
     x=np.array(LL,dtype='float32')
     y=0
     y=np.array(y,dtype='float32')
@@ -55,7 +55,7 @@ for filename in src:
     coeffsr = pywt.dwt2(r, 'db2')
     LLr, (LHr, HLr, HHr) = coeffsr
 
-    LL = cv2.merge((HHb, HHg, HHr))
+    LL = cv2.merge((LLb, LLg, LLr))
 
     x = np.array(LL, dtype='float32')
 
@@ -83,7 +83,7 @@ for filename in src:
     coeffsr = pywt.dwt2(r, 'db2')
     LLr, (LHr, HLr, HHr) = coeffsr
 
-    LL = cv2.merge((HHb, HHg, HHr))
+    LL = cv2.merge((LLb, LLg, LLr))
 
     x=np.array(LL,dtype='float32')
     y=2
@@ -110,7 +110,7 @@ for filename in src:
     coeffsr = pywt.dwt2(r, 'db2')
     LLr, (LHr, HLr, HHr) = coeffsr
 
-    LL = cv2.merge((HHb, HHg, HHr))
+    LL = cv2.merge((LLb, LLg, LLr))
 
     x=np.array(LL,dtype='float32')
     y=3
