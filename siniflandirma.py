@@ -17,13 +17,10 @@ i=0
 for filename in src:
     full_file_name='data_big/notumor/'+filename
     x=cv2.imread(full_file_name)
-
     b, g, r = cv2.split(x)
-
     LLb, (LHb, HLb, HHb) = pywt.dwt2(b, 'db2')
     LLg, (LHg, HLg, HHg) = pywt.dwt2(g, 'db2')
     LLr, (LHr, HLr, HHr) = pywt.dwt2(r, 'db2')
-
     LL = cv2.merge((LLb, LLg, LLr))
     x=np.array(LL,dtype='float32')
     y=0
@@ -40,11 +37,9 @@ for filename in src:
     full_file_name='data_big/glioma/'+filename
     x = cv2.imread(full_file_name)
     b, g, r = cv2.split(x)
-
     LLb, (LHb, HLb, HHb) = pywt.dwt2(b, 'db2')
     LLg, (LHg, HLg, HHg) = pywt.dwt2(g, 'db2')
     LLr, (LHr, HLr, HHr) = pywt.dwt2(r, 'db2')
-
     LL = cv2.merge((LLb, LLg, LLr))
     x = np.array(LL, dtype='float32')
     y=1
@@ -61,11 +56,9 @@ for filename in src:
     full_file_name='data_big/meningioma/'+filename
     x=cv2.imread(full_file_name)
     b, g, r = cv2.split(x)
-
     LLb, (LHb, HLb, HHb) = pywt.dwt2(b, 'db2')
     LLg, (LHg, HLg, HHg) = pywt.dwt2(g, 'db2')
     LLr, (LHr, HLr, HHr) = pywt.dwt2(r, 'db2')
-
     LL = cv2.merge((LLb, LLg, LLr))
     x=np.array(LL,dtype='float32')
     y=2
@@ -82,11 +75,9 @@ for filename in src:
     full_file_name='data_big/pituitary/'+filename
     x=cv2.imread(full_file_name)
     b, g, r = cv2.split(x)
-
     LLb, (LHb, HLb, HHb) = pywt.dwt2(b, 'db2')
     LLg, (LHg, HLg, HHg) = pywt.dwt2(g, 'db2')
     LLr, (LHr, HLr, HHr) = pywt.dwt2(r, 'db2')
-
     LL = cv2.merge((LLb, LLg, LLr))
     x=np.array(LL,dtype='float32')
     y=3
