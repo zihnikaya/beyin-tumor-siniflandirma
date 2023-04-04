@@ -100,7 +100,7 @@ Inception=tf.keras.applications.InceptionV3(include_top=False,input_shape=(224,2
 input_image=tf.keras.layers.Input((224,224,3))
 x=Inception (input_image)
 hl=tf.keras.layers.Dense(units=4, activation='relu')(x)
-x=tf.keras.layers.Dense(4)(hl)
+x=tf.keras.layers.Dense(3)(hl)
 x=tf.keras.layers.Dense(4)(x)
 out=tf.keras.layers.Activation(activation='softmax')(x)
 
